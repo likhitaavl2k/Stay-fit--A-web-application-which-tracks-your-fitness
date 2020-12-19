@@ -3,14 +3,14 @@
 For other libraries, images and fonts:
 https://drive.google.com/drive/folders/1dNrjiFNIlLqKI3O34zdZ6ePomBqtD21b?usp=sharing
 
-<b>Introduction:<b>
+<b>Introduction:<b><br>
 StayFit is a web application for analyzing and logging strength training and body building data. StayFit has two different portals i.e exercise portal and recommendations portal. Apart from this, it also includes an admin portal.
 Exercise portal aims to present workout data in a way that highlights and encourages progressive overload and long term commitment. There are many workout tracking apps already available, what sets this one apart is the focus on data. If you want a workout application that guides you through a routine this isn't the tool for you. Exercise portal hasno server and works completely offline using IndexedDB.
 On the other hand, if you manage the routine yourself and track your workouts in a spreadsheet with a bunch of formulas and charts, you're probably the kind of person who would like this application. 
 Recommendations portal provides 3 different subscription plans (Basic, Standard, Premium) where the user can choose their plan according to their requirement. These plans provide basic workout tutorials, workout recommendations and food recommendations according to the user’s weight.
 These plans recommend a particular type of workout according to his/her weight and the same follows with food recommendations i.e., for Breakfast, Lunch and Dinner based on the calorie intake.
 
-<b>Features:</b>
+<b>Features:</b><br>
    1. Simple workout data entry supporting reps, sets, weight, duration, warmup and failure sets
    2. Musculature visualizations
    3. Intensity and volume calculations
@@ -30,12 +30,12 @@ These plans recommend a particular type of workout according to his/her weight a
   17. A chatbot for conducting an online chat conversation via text.
   18. Admin portal for providing recommendations on daily basis.
 
-<b>Software Requirements:</b>
--> Frontend :- HTML,CSS,JS
--> Backend :- PHP
--> Styling :- Bootstrap
--> Database :- MySql
--> Operating System :- Windows/Mac/Linux
+<b>Software Requirements:</b></br>
+-> Frontend :- HTML,CSS,JS<br>
+-> Backend :- PHP<br>
+-> Styling :- Bootstrap<br>
+-> Database :- MySql<br>
+-> Operating System :- Windows/Mac/Linux<br>
 
 <b>Step-wise instructions:</b>
   1. Download the zip file of this repository
