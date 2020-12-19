@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+
+*{
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body{
+	min-height: 1000px;
+}
+p{
+	font-weight: 300;
+	color: #111;
+}
+.banner{
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url(../images/pic20.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.banner .content{
+	max-width: 900px;
+	position: absolute;
+	top: 20%;
+	text-align: center;
+}
+.banner .content h2{
+	font-family: 'Sansita Swashed', cursive;
+	font-size: 4em;
+	color: #111;  /*fff*/
+	letter-spacing: 4px;
+}
+
+.banner .content p{
+	font-size: 1em;
+	color: #fff;
+}
+
+.btn{
+	font-size: 17px;
+	color: #fff;
+	background: #ff0157;
+	display: inline-block;
+	padding: 10px 30px;
+	margin-top: 20px;
+	/*text-transform: uppercase;*/
+	text-decoration: none;
+	letter-spacing: 1px;
+	transition: 0.5s;
+}
+.btn:hover{
+	letter-spacing: 3px;
+}
+
+header{
+	/*background-color: black;*/
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 0px 100px;
+	z-index: 10000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: 0.5s;
+}
+
+header.sticky{
+	background: #111;
+	padding: 10px 100px;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+header .logo{
+	color: #111;
+	font-weight: 700;
+	font-size: 2em;
+	text-decoration: none;
+}
+
+header .logo span{
+	color: #ff0157;
+}
+
+header.sticky .logo{
+	color: #fff;
+}
+
+header .navigation{
+	position: relative;
+	display: flex;
+}
+
+header .navigation li{
+	list-style: none;
+	margin-left: 30px;
+}
+
+header .navigation li a{
+	text-decoration: none;
+	font-size: 1.3em;
+	font-weight: 700;
+	color: #111;
+}
+
+header .navigation li a:hover{
+	color: #ff0157;
+}
+
+header.sticky .navigation li a{
+	color: #fff;
+}
+
+header.sticky .navigation li a:hover{
+	color: #ff0157;
+}
+
+section{
+	padding: 100px;
+}
+
+.row{
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: space-between; 
+}
+
+.row .col50{
+	position: relative;
+	width: 48%;
+}
+
+.titleText{
+	color: #111;
+	font-size: 2em;
+	font-weight: 300;
+}
+
+.titleText span{
+	color: #ff0157;
+	font-weight: 700;
+	font-size: 1.5em;
+}
+
+.row .col50 .imgBx{
+	position: relative;
+	width: 100%;
+	min-height: 400px; 
+}
+
+.row .col50 .imgBx img{
+	position: absolute;
+	top: 0;
+	left: 0; 
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.title{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.featuresrow{
+	background-image: url(../images/bg2.jpg);
+}
+
+.features .content{
+	display: flex;
+	justify-content: center;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	margin-top: 40px;
+}
+
+.features .content .box{
+	width: 340px;
+	margin: 20px;
+	border: 15px solid #fff;
+	box-shadow: 0 5px 35px rgba(0,0,0,0.08);
+}
+
+.features .content .box .imgBx{
+	position: relative;
+	width: 100%;
+	height: 300px;
+}
+
+.features .content .box .imgBx img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; 
+}
+
+.features .content .box .text{
+	padding: 15px 0 5px;
+}
+
+.features .content .box .text h3{
+	font-size: 15px;
+	font-weight: 200;
+	color: #fff;
+
+}
+
+.expert .content{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin-top: 40px;
+}
+
+.expert .content .box{
+	width: 250px;
+	margin: 15px;
+}
+
+.expert .content .box .imgBx{
+	position: relative;
+	width: 100%;
+	height: 300px;
+}
+
+.expert .content .box .imgBx img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; 
+}
+
+.expert .content .box .text{
+	padding: 15px 0 5px;
+}
+
+.expert .content .box .text h3{
+	font-weight: 400;
+	color: #111;
+}
+
+.reviews{
+	background: url(../images/astronomy-2179083_1920.jpg);
+	background-size: cover;
+}
+
+.white .titleText,
+.white p{
+	color: #fff;
+}
+
+.reviews .content{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin-top: 40px;
+}
+
+.reviews .content .box{
+	width: 340px;
+	margin: 20px;
+	padding: 40px;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.reviews .content .box .imgBx{
+	position: relative;
+	width: 80px;
+	height: 80px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.reviews .content .box .imgBx img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; 
+}
+
+.reviews .content .box .text{
+	text-align: center;
+}
+
+.reviews .content .box .text p{
+	color: #666;
+	font-style: initial;
+}
+
+.reviews .content .box .text h3{
+	margin-top: 20px;
+	color: #111;
+	font-size: 1.1em;
+	color: #ff0157;
+	font-weight: 600;
+}
+
+.contact{
+	background: url(../images/contact2.png);
+	background-size: cover;
+}
+
+.contactForm{
+	padding: 75px 50px;
+	background: #fff;
+	box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+	max-width: 500px;
+	margin-top: 50px;
+}
+
+/*.contactForm2{
+	position: relative;
+	left: 400px;
+	padding: 75px 50px;
+	background: #fff;
+	box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+	max-width: 500px;
+	margin-top: 50px;
+}
+.contactForm h3{
+	color: #111;
+	font-size: 1.2em;
+	margin-bottom: 20px;
+	font-weight: 500;
+}
+
+.contactForm .inputBox{
+	position: relative;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox textarea{
+	width: 100%;
+	border: 1px solid #555;
+	padding: 10px;
+	color: #111;
+	outline: none;
+	font-size: 16px;
+	font-weight: 300;
+	resize: none;
+}
+
+.contactForm .inputBox input[type="submit"]{
+	font-size: 1em;
+	color: #fff;
+	background: #ff0157;
+	display: inline-block;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 2px;
+	transition: 0.5s;
+	max-width: 100px;
+	font-weight: 500;
+	border: none;
+	cursor: pointer;
+}*/
+
+.copyrightText{
+	padding: 8px 40px;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	text-align: center;
+}
+
+.copyrightText p{
+	color: #333;
+}

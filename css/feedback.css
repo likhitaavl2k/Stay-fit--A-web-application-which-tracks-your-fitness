@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+.title{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+*{
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.titleText{
+	color: #111;
+	font-size: 2em;
+	font-weight: 300;
+}
+
+.titleText span{
+	color: #ff0157;
+	font-weight: 700;
+	font-size: 1.5em;
+}
+
+.contactForm{
+	padding: 75px 50px;
+	background: #fff;
+	box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+	max-width: 500px;
+	margin-top: 50px;
+	position: relative;
+	left: 440px;
+}
+.contactForm .inputBox{
+	position: relative;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox textarea,
+.contactForm .inputBox select{
+	width: 100%;
+	border: 1px solid #555;
+	padding: 3px;
+	color: #111;
+	outline: none;
+	font-size: 16px;
+	font-weight: 300;
+	resize: none;
+}
+
+.contactForm .inputBox input[type="submit"]{
+	font-size: 1em;
+	color: #fff;
+	background: #ff0157;
+	display: inline-block;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 2px;
+	transition: 0.5s;
+	max-width: 100px;
+	font-weight: 500;
+	border: none;
+	cursor: pointer; 
+}
+.contactForm .inputBox select{
+	width: 90%;
+	border: 1px solid #555;
+	padding: 3px;
+	color: #111;
+	outline: none;
+	font-size: 16px;
+	font-weight: 300;
+	resize: none;
+}

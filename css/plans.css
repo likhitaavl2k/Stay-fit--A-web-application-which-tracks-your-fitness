@@ -1,0 +1,196 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+body {
+  background: black;
+  padding: 0;
+  maring: 0;
+}
+
+#price {
+  text-align: center;
+}
+
+.plan {
+  display: inline-block;
+  margin: 10px 1%;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.plan-inner {
+  background: #fff;
+  margin: 0 auto;
+  min-width: 280px;
+  max-width: 100%;
+  position:relative;
+}
+
+.entry-title {
+  background: #53CFE9;
+  height: 140px;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.entry-title>h3 {
+  background: #20BADA;
+  font-size: 20px;
+  padding: 5px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0;
+}
+
+.entry-title .price {
+  position: absolute;
+  bottom: -30px;
+  background: #20BADA;
+  height: 95px;
+  width: 95px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  border-radius: 150px;
+  border: 5px solid #fff;
+  line-height: 80px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.price span {
+  position: absolute;
+  font-size: 20px;
+  bottom: -10px;
+  left: 30px;
+  font-weight: 400;
+  align-content: center;
+}
+
+li{
+  font-family: cursive;
+}
+
+strong{
+  font-size: 20px;
+}
+
+.entry-content {
+  color: #323232;
+}
+
+.entry-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.entry-content li {
+  border-bottom: 1px solid #E5E5E5;
+  padding: 10px 0;
+}
+
+.entry-content li:last-child {
+  border: none;
+}
+
+.btn {
+  padding: 3em 0;
+  text-align: center;
+}
+
+.btn1 a {
+  background: #44CBC6;
+  padding: 10px 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none
+}
+
+.btn2 a {
+  background: #3772aa;
+  padding: 10px 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none
+}
+
+.btn3 a {
+  background: #DD4B5E;
+  padding: 10px 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none
+}
+
+#paypal1{
+  background-color: #44CBC6;
+  border: none;
+  font-family: cursive;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+  padding: 10px 30px;
+  font-size: 15px;
+}
+img{
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  z-index: 2;
+  right: 10px;
+}
+/*.hot{
+    position: absolute;
+    top: -9px;
+    background: #eae355;
+    color: #fff;
+    text-transform: uppercase;
+    z-index: 2;
+    padding: 2px 5px;
+    color: black;
+    font-size: 20px;
+    border-radius: 2px;
+    right: 10px;
+    font-weight: 700;
+}*/
+.basic .entry-title {
+  background: #75DDD9;
+}
+
+.basic .entry-title > h3 {
+  background: #44CBC6;
+}
+
+.basic .price {
+  background: #44CBC6;
+}
+
+.standard .entry-title {
+  background: #4484c1;
+}
+
+.standard .entry-title > h3 {
+  background: #3772aa;
+}
+
+.standard .price {
+  background: #3772aa;
+}
+
+.ultimite .entry-title > h3 {
+  background: #DD4B5E;
+}
+
+.ultimite .entry-title {
+  background: #F75C70;
+}
+
+.ultimite .price {
+  background: #DD4B5E;
+}

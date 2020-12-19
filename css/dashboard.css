@@ -1,0 +1,221 @@
+body {
+  font-size: .875rem;
+}
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: cursive;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  /*background-color: #4CAF50;*/
+  background-color: #4b5bce;
+  color: white;
+}
+/*table{
+    width:100%;
+    border-collapse:collapse;
+    border: 5px black;
+    padding: 5px;
+    font-size: 30px;
+    font-family: cursive;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+/*th{
+    border: 2px black;
+    background-color: #49565e;
+    color: white;
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 50px;
+    font-size: 25px;
+    text-align: left;
+}*/
+/*tr,td{
+    border: 1px solid #ddd;
+    color: black;
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 50px;
+    font-size: 20px;
+}*/
+    /*background-color: transparent;*/
+    /*background-color: rgba(255, 255, 255, 0.1);*/
+    /*background-color: #9bc7c1;*/
+/*th{
+  color: black;
+  font-family: cursive;
+  font-size: 30px;
+  padding: 10px 30px;
+}*/
+
+#edit{
+  padding-bottom: 2px;
+  font-size:15px;
+  font-family: cursive;
+  /*font-family: "Times New Roman", Times, serif;*/
+  border: none;
+  font-weight: 900;
+}
+
+#delete{
+  padding:2px;
+  background-color:red;
+  color: black;
+  font-size:15px;
+  font-family: cursive;
+  /*font-family: "Times New Roman", Times, serif;*/
+  border: none;
+  font-weight: 900;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/*#adminimage{
+  float: right;
+  right: 500px;
+}*/
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -3px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: black;
+}
+
+label{
+  color: #007bff;
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+  font-size: 3.5rem;
+  }
+}
+
+@media (max-width: @screen-xs-min) {
+  .modal-xs { width: @modal-sm; }
+}

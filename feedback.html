@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feedback Form</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/feedback.css">
+</head>
+<body>
+
+	<section class="contact" id="contact">
+		<div class="title">
+			<h2 class="titleText"><span>F</span>eedback</h2>
+			<p>Give us your suggestions! (Ignore if you have already given)</p>
+		</div>
+		<div class="contactForm center">
+			<form action="insertfeedback.php" method="post" enctype="multipart/form-data"> 
+			<div class="inputBox">
+				<input type="text" name="name"  placeholder="Name*" >
+			</div>
+			<div class="inputBox">
+				<i class="fa fa-star fa-2x"></i><h3 style="display: inline-block;font-size: 17px;">:</h3>
+				<select name="stars">
+					<option>Select stars*</option>
+					<option>1</option>
+					<option>1.5</option>
+					<option>2</option>
+					<option>2.5</option>
+					<option>3</option>
+					<option>3.5</option>
+					<option>4</option>
+					<option>4.5</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="inputBox">
+				<textarea name="feedback" placeholder="Feedback*" ></textarea>
+			</div>
+			<div >
+				<i class="fa fa-upload fa-2x"></i><h3 style="display: inline-block;font-size: 17px;">Upload your picture</h3>
+				<input type="file" class="form-control-file" name="file1" accept="image/png, image/jpeg,image/jpg">
+			</div>
+			<br>
+			<div class="inputBox">
+				<input type="submit" name="submit1" value="Send">
+				<input type="submit" name="submit2" value="Skip" style="display: inline-block;" >
+			</div>
+			</form>
+		</div>
+	</section>
+
+</body>
+</html>

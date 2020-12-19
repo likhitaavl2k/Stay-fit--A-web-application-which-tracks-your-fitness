@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap-flex.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/dc.css">
+	<link rel="stylesheet" type="text/css" href="lib/ionicons.css">
+	<link rel="stylesheet" type="text/css" href="sf/mb.css">
+	<link rel="apple-touch-icon" href="Icon512.png" />
+	<link rel="icon" type="image/png" href="Icon512.png" />
+	<title>Stay Fit</title>
+	<style >
+		.card-header{
+			background-color: #5bc0de;
+		}
+		.recom {
+			background-color: #5bc0de; /* Green */
+			/*#4CAF50*/
+			border: none;
+			/*color: white;*/
+			padding: 8px 15px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			/*font-size: 16px;*/
+			font-size: 20px;
+			color: black;
+			font-weight: 50px;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-dark bg-inverse navbar-full navbar-fixed-top">
+		<ul class="nav navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-bottom: 0; padding-top: 0;">&#9776;</a>
+				<div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+					<button type="button" class="dropdown-item" data-toggle="modal" data-backdrop="static" data-target="#select-exercise-modal">Add Set</button>
+					<button type="button" class="dropdown-item demo-hidden" data-backdrop="static" data-toggle="modal" data-target="#import-data-modal">Import</button>
+					<button type="button" class="dropdown-item demo-hidden" data-backdrop="static" onclick="exportJSON();" download>Export</button>
+					<button type="button" class="dropdown-item" data-toggle="modal" data-target="#about-modal">About</button>
+					<div class="dropdown-divider" style="background-color: #5bc0de;"></div>
+					<button type="button" class="dropdown-item" data-toggle="modal" data-backdrop="static" data-target="#debug-options-modal">Debug</button>
+				</div>
+			</li>
+		</ul>
+		<a href="index.php"><i class="fa fa-arrow-left" style="color: white;padding-left: 20px;size: 20px;"></i></a>
+	</nav>
+	<span class="demo-show tag tag-danger" style="color:#fefefe; font-weight:bold; font-size: 1rem; position: fixed; top: 55px; right: 10px; z-index: 1000; opacity: 90%;" hidden="true">SAMPLE DATA</span>
+<!-- <div class="debug-only tag tag-default" style="position: fixed; top: 55px; left: 10px; z-index: 1000; opacity: 90%;">
+	<span class="card-text hidden-sm-up">xs</span>
+	<span class="card-text hidden-xs-down hidden-md-up">sm</span>
+	<span class="card-text hidden-sm-down hidden-lg-up">md</span>
+	<span class="card-text hidden-md-down hidden-xl-up visible">lg</span>
+	<span class="card-text hidden-lg-down visible">xl</span>
+</div> -->
+<!-- 
+Main content
+-->
+<div class="scrollable">
+	<div class="container">
+		<div class="row mx-0">
+			<div class="col-xs-12 col-md-4 col-lg-3">
+				<div class="card" style="border-color: #5bc0de;border-width: 2px;">
+					<div class="card-block row anatomy" style="position:relative;">
+						<div id="anatomy-diagram-left" class="col-xs-6"></div>
+						<div id="anatomy-diagram-right" class="col-xs-6"></div>
+						<span id="anatomy-tip" class="tag tag-info tip" hidden="true"></span>
+						<div class="no-padding full-bleed">
+							<form>
+								<div class="list-group entry-inputs">
+									<div class="input-group">
+										<span class="input-group-addon">Start</span>
+										<input class="form-control no-left-border text-xs-right" type="date" id="start-date-input" style="padding: 0 0.75rem 0 0; width: 50%;" required>
+									</div>
+									<div id="time-input-container" class="input-group">
+										<span class="input-group-addon no-left-border">End</span>
+										<input class="form-control no-left-border text-xs-right" type="date" id="end-date-input" style="padding: 0 0.75rem 0 0; width: 50%;" required>
+									</div>
+									<div class="input-group">
+										<select class="form-control custom-select no-left-border" onchange="metricChanged(event);">
+											<option value="intensity" selected>Intensity</option>
+											<option value="weight">Weight</option>
+											<option value="volume">Volume</option>
+											<option value="activedur">Duration (active)</option>
+											<option value="restdur">Duration (rest)</option>
+											<option value="combduration">Duration (both)</option>
+											<option value="sets">Sets</option>
+											<option value="reps">Reps</option>
+											<option value="workouts">Workouts</option>
+											<option value="exercises">Exercises</option>
+										</select>
+									</div>
+									<div class="input-group">
+										<select id="aggregation" class="form-control custom-select no-left-border" onchange="aggregationChanged(event);">
+											<option value="max" selected>Max</option>
+											<option value="avg">Avg.</option>
+											<option value="count">Count</option>
+											<option value="sum">Total</option>
+										</select>
+									</div>
+									<div class="input-group" style="display: none;">
+										<div class="input-group-btn full-bleed">
+											<button class="btn btn-secondary dropdown-toggle no-left-border text-xs-left full-bleed input-group-addon right-caret" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												Personal Records
+											</button>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+												<div class="list-group">
+													<div class="input-group">
+														<span class="form-control no-left-border no-bottom-border no-top-border">Weight</span>
+														<span class="input-group-addon no-left-border no-top-border">
+															<input type="checkbox" name="pr-filter" value="weight" onclick="prFilterChanged(event);">
+														</span>
+													</div>
+													<div class="input-group">
+														<span class="form-control no-left-border">Volume</span>
+														<span class="input-group-addon no-left-border">
+															<input type="checkbox" name="pr-filter" value="volume" onclick="prFilterChanged(event);">
+														</span>
+													</div>
+													<div class="input-group">
+														<span class="form-control no-left-border">Sets</span>
+														<span class="input-group-addon no-left-border">
+															<input type="checkbox" name="pr-filter" value="sets" onclick="prFilterChanged(event);">
+														</span>
+													</div>
+													<div class="input-group">
+														<span class="form-control no-left-border no-bottom-border">Reps</span>
+														<span class="input-group-addon no-left-border no-bottom-border">
+															<input type="checkbox" name="pr-filter" value="reps" onclick="prFilterChanged(event);">
+														</span>
+													</div>
+													<div class="input-group">
+														<span class="form-control no-left-border no-bottom-border">First</span>
+														<span class="input-group-addon no-left-border no-bottom-border">
+															<input type="checkbox" name="pr-filter" value="first" onclick="prFilterChanged(event);">
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="input-group" style="display: none;">
+										<div class="input-group-btn full-bleed">
+											<button class="btn btn-secondary dropdown-toggle no-left-border text-xs-left full-bleed input-group-addon right-caret bottom-rounded-border-sm-up" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+												Muscle Roles
+											</button>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 220px !important; opacity: 0.9;">
+												<div class="list-group">
+													<div class="input-group">
+														<span class="form-control no-left-border no-bottom-border no-top-border">Target</span>
+														<span class="input-group-addon no-left-border no-top-border">
+															<input type="checkbox" checked="checked">
+														</span>
+													</div>
+													<div class="input-group">
+														<span class="form-control no-left-border">Synergists</span>
+														<span class="input-group-addon no-left-border">
+															<input type="checkbox"  checked="checked">
+														</span>
+													</div>
+													<div class="input-group">
+														<span class="form-control no-left-border">Stabilizers</span>
+														<span class="input-group-addon no-left-border">
+															<input type="checkbox" checked="checked">
+														</span>
+													</div>
+													<div class="input-group">
+														<span class="form-control no-left-border no-bottom-border">Dynamic Stabilizers</span>
+														<span class="input-group-addon no-left-border no-bottom-border">
+															<input type="checkbox" checked="checked">
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<div class="btn-group btn-group-xs top-right" role="group" aria-label="Second group">
+								<a id="reset-muscle" style="display: none; font-size: 24px; margin: -6px 0 -0 0; color: #d9534f;" href="javascript:muscleBarChart.filterAll();dc.redrawAll();">
+									<i class="icon ion-ios-refresh"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card" style="border-color: #5bc0de;border-width: 2px;">
+					<ul id="statistics" class="list-group"></ul>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-8 col-lg-9 px-0">
+				<div class="row mx-0">
+					<div class="col-xs-12">
+						<div class="card" style="border-color: #5bc0de;border-width: 2px;">
+							<span id="cal-tip" class="tag tag-info tip" hidden="true"></span>
+							<div id="cal-graph"></div>
+						</div>
+					</div>
+
+					<div class="col-xs-12">
+						<div class="card" style="border-color: #5bc0de;border-width: 2px;">
+							<div class="card-header">
+								<b>Timeline</b>
+								<div class="btn-toolbar float-xs-right" role="toolbar" aria-label="Toolbar with button groups">
+									<div class="btn-group btn-group-xs" role="group" aria-label="Second group">
+										<a href="javascript:timeChart.panLeft();" class="btn btn-secondary">
+											<i class="icon ion-ios-arrow-left"></i>
+										</a>
+										<a href="javascript:timeChart.panRight();" class="btn btn-secondary">
+											<i class="icon ion-ios-arrow-right"></i>
+										</a>
+									</div>
+									<div class="btn-group btn-group-xs" role="group" aria-label="First group">
+										<a href="javascript:timeChart.zoomOut();" class="btn btn-secondary">
+											<i class="icon ion-ios-minus-empty"></i>
+										</a>
+										<a href="javascript:timeChart.zoomIn();" class="btn btn-secondary">
+											<i class="icon ion-ios-plus-empty"></i>
+										</a>
+									</div>
+									<div class="btn-group btn-group-xs" role="group" aria-label="First group">
+										<button type="button" class="btn btn-secondary active" data-toggle="button" aria-pressed="true" autocomplete="off" onclick="toggleBrush(event);">
+											<i class="icon ion-ios-barcode-outline"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div id="time-chart" style="position:relative;">
+								<span id="time-chart-tip" class="tag tag-info tip" hidden="true"></span>
+								<a id="reset-date-range" class="top-right tag tag-pill tag-danger" style="display: none;" href="javascript:resetDateRangeFilter();">
+									reset
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row mx-0">
+					<div class="col-sm-6 col-xl-4">
+						<div class="card" style="border-color: #5bc0de;border-width: 2px;">
+							<div class="card-header" style="height: 41px;">
+								<b>Day of week</b>
+							</div>
+							<div id="day-of-week-chart" class="no-axis" style="position:relative;">
+								<a style="display: none; opacity: 80%;" class="reset tag tag-pill tag-danger top-right" href="javascript:dayOfWeekChart.filterAll();dc.redrawAll();">
+									reset
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-xl-4">
+						<div class="card" style="border-color: #5bc0de;border-width: 2px;">
+							<div class="card-header" style="height: 41px;">
+								<b>Muscles</b>
+							</div>
+							<div id="muscle-bar-chart" class="no-axis" style="position:relative;">
+								<a style="display: none; opacity: 80%;" class="reset tag tag-pill tag-danger top-right" href="javascript:muscleBarChart.filterAll();dc.redrawAll();">
+									reset
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-xl-4">
+						<div class="card no-axis" style="border-color: #5bc0de;border-width: 2px;">
+							<div class="card-header" style="height: 41px;">
+								<b>Exercises</b>
+							</div>
+							<div id="exercise-chart" class="no-axis" style="position:relative;">								
+								<a style="display: none; opacity: 80%;" class="reset tag tag-pill tag-danger top-right" href="javascript:exerciseChart.filterAll();dc.redrawAll();">
+									reset
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="card" style="border-color: #5bc0de;border-width: 2px;">
+							<div class="card-header" style="height: 41px;">
+								<b>Sets</b>
+							</div>
+							<div id="sets-chart" style="position:relative;">								
+								<a style="display: none; opacity: 80%;" class="reset tag tag-pill tag-danger top-right" href="javascript:setsChart.filterAll();dc.redrawAll();">
+									reset
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="card" style="border-color: #5bc0de;border-width: 2px;">
+							<div class="card-header" style="height: 41px;" >
+								<b>Reps</b>
+							</div>
+							<div id="reps-chart" style="position:relative;">								
+								<a style="display: none; opacity: 80%;" class="reset tag tag-pill tag-danger top-right" href="javascript:repsChart.filterAll();dc.redrawAll();">
+									reset
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-12">
+						<div class="card" style="border-color: #5bc0de;border-width: 2px;">
+							<div class="card-header" style="height: 41px;">
+								<b>Weights</b>
+							</div>
+							<div id="weights-chart" style="position:relative;">
+								<span id="weights-chart-tip" class="tag tag-info tip" hidden="true"></span>
+								<a style="display: none; opacity: 80%;" class="reset tag tag-pill tag-danger top-right" href="javascript:weightsChart.filterAll();dc.redrawAll();">
+									reset
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row mx-0" >
+					<div class="col-sm-12" style="border-color: #5bc0de;">
+						<!--<div class="card">-->
+							<!--<div class="card-block no-padding-xs-dn">-->
+								<div class="table-responsive" style="margin-top: 1rem;">
+									<table id="data-table" class="table table-hover table-sm" style="background-color: #5bc0de;"></table>
+								</div>
+								<!--</div>-->
+								<!--</div>-->
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="modal fade" id="select-exercise-modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #5bc0de;">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Select Exercise</h4>
+					</div>
+					<div id="exercise-list-container" class="modal-body no-padding" >
+						<div style="display: flex;">
+							<ul class="list-group" style="display: flex;">
+								<li class="list-group-item"><input class="search form-control" style="width: 170%;" placeholder="Search" /></li>
+								<li class="list-group-item" style="position: relative;left: 35%;"><a class="recom" href="logged.php">Recommendations</a></li>
+								<!-- <button  class="recom" type="submit" onclick="http://google.co.in" >Recommendations</button> -->
+							</ul>
+						</div>
+						<ul id="exercise-list" class="list list-group"></ul>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="newentry-modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #5bc0de;">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">New Set</h4>
+					</div>
+					<div class="modal-body no-padding">
+						<!-- <div id="exercise-title"  style="margin-bottom: -1px;padding: .55rem .75rem;"></div> -->
+						<form>
+							<div class="list-group entry-inputs">
+								<div class="input-group">
+									<span class="input-group-addon">Date</span>
+									<input class="form-control no-left-border text-xs-right" type="date" id="date-input" required>
+								</div>
+								<div id="time-input-container" class="input-group">
+									<span class="input-group-addon no-left-border">Time</span>
+									<input class="form-control no-left-border text-xs-right" type="time" id="time-input" required>
+								</div>
+								<div class="input-group">
+									<span class="input-group-addon">Duration</span>
+									<input class="form-control no-left-border text-xs-right stopwatch-display" type="text" id="duration-input">
+									<span class="input-group-btn">
+										<button class="btn btn-secondary stopwatch-toggle" type="button" style="width: 3.5rem;">&#9658;</button>
+									</span>
+								</div>
+								<div id="entry-input-opt-weight" class="input-group opt">
+									<span class="input-group-addon">Weight</span>
+									<input class="form-control no-left-border text-xs-right" type="number" id="weight-input">
+								</div>
+								<div id="entry-input-opt-reps" class="input-group opt">
+									<span class="input-group-addon">Reps</span>
+									<input class="form-control no-left-border text-xs-right" type="number" pattern="[0-9]*" id="reps-input">
+								</div>
+								<div id="entry-input-opt-assistance" class="input-group opt">
+									<span class="input-group-addon" style="display: none;">Assistance weight</span>
+									<input class="form-control no-left-border text-xs-right" type="number" id="reps-input" style="display: none;">
+								</div>
+								<div id="entry-input-opt-bodyweight" class="input-group opt">
+									<span class="input-group-addon" style="display: none;">Body weight</span>
+									<input class="form-control no-left-border text-xs-right" type="number" id="reps-input" style="display: none;">
+								</div>
+								<div class="input-group">
+									<span class="input-group-addon">Warmup</span>
+									<span class="form-control no-left-border">&#12288;</span>
+									<span class="input-group-addon no-left-border">
+										<input type="checkbox" id="warmup-input">
+									</span>
+								</div>
+								<div class="input-group">
+									<span class="input-group-addon">Failure</span>
+									<span class="form-control no-left-border">&#12288;</span>
+									<span class="input-group-addon no-left-border">
+										<input type="checkbox" id="failure-imput">
+									</span>
+								</div>
+							</div>
+							<div class="card-block collapse">
+								<div id="import-error-container" class="alert alert-danger" role="alert">
+									<strong>Error:</strong> Missing field.
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="saveEntry();">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="import-data-modal">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #5bc0de;">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Import Data</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="replace-on-import">
+								<div class="form-group has-danger collapse in">
+									<label for="exampleInputFile">Select a CSV file to import</label>
+									<input type="file" class="form-control-file" aria-describedby="fileHelp" onchange="onImportFileSelect(event)">
+									<small id="fileHelp" class="form-text text-muted">Import may take a while, please be patient.</small>
+								</div>
+								<div id="import-button-container" class="collapse">
+									<button id="import-button" type="button" class="btn btn-block btn-primary" onclick="importSelectedFile(event)">Import</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="debug-options-modal">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #5bc0de;">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Debug Options</h4>
+					</div>
+					<div class="modal-body">
+						<button id="delete-all-entries-button" type="button" class="btn btn-block btn-danger" onclick="deleteAllEntries()">Delete Database</button>
+						<button id="calculate-all-button" type="button" class="btn btn-block btn-danger" onclick="recalculateAllEntriesWithProgress()">Recalculate All</button>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="exercise-detail-modal">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title"></h4>
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-6 col-lg-4">
+									<div class="card">
+										<div id="exercise-title" class="card-header"></div>
+										<ul id="exercise-properties-list" class="list-group"></ul>
+										<div class="card-block row anatomy">
+											<div id="anatomy-diagram-left" class="col-xs-6"></div>
+											<div id="anatomy-diagram-right" class="col-xs-6"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-lg-4">
+									<div class="card">
+										<div id="anatomy-diagram-legend-container"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="about-modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color: #5bc0de;">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">About Stay Fit Workouts Portal</h4>
+					</div>
+					<div class="modal-body">
+						<h5><a href="">GitHub Project Page<a></h5>
+							<p>Copyright (C) 2020 A.V.L.Likhita & D.Sai Hashitha</p>
+							<p>Stay fit is a fitness tracking web application for analyzing and logging strength training and body building data.Stay fit workouts portal has no server and works completely offline using IndexedDB.There is no need of internet.</p>
+							
+							<p><b>Features include:</b></p>		
+							<ul>
+								<li>Simple workout data entry supporting reps, sets, weight, duration, warmup and actual workouts</li>
+								<li>Exercise search</li>
+								<li>Supports multiple workouts per day</li>
+								<li>Intensity and volume calculations</li>
+								<li>Track and visualize our workout data</li>
+								<li>Lots of charts</li>
+								<li>Muscular visualizations(just like animations)</li>
+								<li>Import</li>
+								<li>Export</li>
+								<li>Proper time zone support (important for people who travel)</li>
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script src="lib/jquery.min.js"></script>
+			<script src="lib/tether.min.js"></script>
+			<script src="lib/bootstrap.min.js"></script>
+			<script src="lib/d3.v3.min.js"></script>
+			<script src="lib/list.min.js"></script>
+			<script src="lib/crossfilter.js"></script>
+			<script src="lib/dc.js"></script>
+			<script src="lib/colorbrewer.js"></script>
+			<script src="lib/moment.min.js"></script>
+			<script src="lib/download.js"></script>
+			<script src="lib/reductio.js"></script>
+			<script src="lib/inobounce.min.js"></script>
+			<script src="lib/fastclick.js"></script>
+
+			<script src="sf/muscles.js"></script>
+			<script src="sf/exercises.js"></script>
+			<script src="sf/calendar.js"></script>
+			<script src="sf/anatomy.js"></script>
+			<script src="sf/mb.js"></script>
+
+		</body>
+		</html>
