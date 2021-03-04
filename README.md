@@ -4,10 +4,7 @@ For other libraries, images and fonts:
 https://drive.google.com/drive/folders/1dNrjiFNIlLqKI3O34zdZ6ePomBqtD21b?usp=sharing
 
 For the execution instructions or the video:
-https://drive.google.com/drive/u/0/folders/1D7RBLgzXaqbq7TO7plfo2PRnOE87vk1p
-
-<video src="https://drive.google.com/file/d/1rQDG85BbekKP3wrJftYu-1u9o000kDNZ/view?usp=sharing" controls>
-</video>
+https://drive.google.com/file/d/1rQDG85BbekKP3wrJftYu-1u9o000kDNZ/view?usp=sharing
 
 <b>Introduction:</b><br>
 StayFit is a web application for analyzing and logging strength training and body building data. StayFit has two different portals i.e exercise portal and recommendations portal. Apart from this, it also includes an admin portal.
