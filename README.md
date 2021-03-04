@@ -9,9 +9,29 @@ https://drive.google.com/file/d/1rQDG85BbekKP3wrJftYu-1u9o000kDNZ/view?usp=shari
 Report & ppts: https://github.com/likhitaavl2k/Stay-fit--A-web-application-which-tracks-your-fitness/tree/main/Report%20%26%20PPT
 
 <b>Few Screenshots:</b>
-<div>
-	<img src="Screenshots/Picture1.jpg">
-	<img src="Screenshots/Picture2.jpg" style="display: inline-block;">
+<style>
+* {
+  box-sizing: border-box;
+}
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+<div class="row">
+  <div class="column">
+    <img src="Picture1.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="Picture2.jpg" style="width:100%">
+  </div>
 </div>
 
 <b>Introduction:</b><br>
