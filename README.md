@@ -10,14 +10,7 @@ Report & ppts: https://github.com/likhitaavl2k/Stay-fit--A-web-application-which
 
 <b>Few Screenshots:</b>
 
-<div class="row" style="display: table;">
-  <div class="column" style="float: left;width: 50%;padding: 5px;">
-    <img src="Screenshots/Picture1.jpg" style="width:50%">
-  </div>
-  <div class="column" style="float: left;width: 50%;padding: 5px;">
-    <img src="Screenshots/Picture2.jpg" style="width:50%">
-  </div>
-</div>
+<img src="Screenshots/Picture1.jpg" style="width:50%">
 
 <b>Introduction:</b><br>
 StayFit is a web application for analyzing and logging strength training and body building data. StayFit has two different portals i.e exercise portal and recommendations portal. Apart from this, it also includes an admin portal.
