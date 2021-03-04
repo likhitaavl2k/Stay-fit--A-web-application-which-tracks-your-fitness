@@ -27,10 +27,10 @@ Report & ppts: https://github.com/likhitaavl2k/Stay-fit--A-web-application-which
 
 <div class="row">
   <div class="column">
-    <img src="Picture1.jpg" style="width:100%">
+    <img src="Screenshots/Picture1.jpg" style="width:100%">
   </div>
   <div class="column">
-    <img src="Picture2.jpg" style="width:100%">
+    <img src="Screenshots/Picture2.jpg" style="width:100%">
   </div>
 </div>
 
