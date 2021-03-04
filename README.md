@@ -10,7 +10,7 @@ Report & ppts: https://github.com/likhitaavl2k/Stay-fit--A-web-application-which
 
 <b>Few Screenshots:</b>
 
-<img src="Screenshots/Picture1.jpg" width="1000px">
+<img src="Screenshots/Picture1.jpg" width="600px" height="500px">
 <img src="Screenshots/Picture1.jpg" >
 <img src="Screenshots/Picture1.jpg" >
 
