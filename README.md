@@ -51,7 +51,7 @@ These plans recommend a particular type of workout according to his/her weight a
   3. Admin portal
   
 <b>Software Requirements:</b></br>
--> Frontend :- HTML,CSS,JS<br>
+-> Frontend :- HTML,CSS,JS,JQuery<br>
 -> Backend :- PHP<br>
 -> Styling :- Bootstrap<br>
 -> Database :- MySql<br>
@@ -74,3 +74,5 @@ These plans recommend a particular type of workout according to his/her weight a
   11. Paypal can be used only when our project is hosted. So to temporarily host a page, <b>ngrok</b>(https://ngrok.com/docs) can be used. 
   12. For detailed explanation, look at the execution video from the below link
   	https://drive.google.com/file/d/1rQDG85BbekKP3wrJftYu-1u9o000kDNZ/view?usp=sharing
+
+<b>Further Assistance:</b>  avllikhita@gmail.com
