@@ -6,6 +6,12 @@ https://drive.google.com/drive/folders/1dNrjiFNIlLqKI3O34zdZ6ePomBqtD21b?usp=sha
 For the execution instructions or the video:
 https://drive.google.com/file/d/1rQDG85BbekKP3wrJftYu-1u9o000kDNZ/view?usp=sharing
 
+Report & ppts: https://github.com/likhitaavl2k/Stay-fit--A-web-application-which-tracks-your-fitness/tree/main/Report%20%26%20PPT
+
+<b>Few Screenshots:</b>
+
+<img src="Screenshots/Picture1.jpg">
+
 <b>Introduction:</b><br>
 StayFit is a web application for analyzing and logging strength training and body building data. StayFit has two different portals i.e exercise portal and recommendations portal. Apart from this, it also includes an admin portal.
 Exercise portal aims to present workout data in a way that highlights and encourages progressive overload and long term commitment. There are many workout tracking apps already available, what sets this one apart is the focus on data. If you want a workout application that guides you through a routine this isn't the tool for you. Exercise portal hasno server and works completely offline using IndexedDB.
@@ -32,7 +38,9 @@ These plans recommend a particular type of workout according to his/her weight a
   16. Premium plan includes food recommendations including features of standard
   17. A chatbot for conducting an online chat conversation via text.
   18. Admin portal for providing recommendations on daily basis.
-
+  19. Lightbox extension for larger view of pictures and gifs.
+  20. Ngrok for temporarily hosting a webpage(https://ngrok.com/docs).
+ 
 <b>3 modules:</b>
   1. Exercise portal
   2. Recommendation's portal
@@ -55,7 +63,10 @@ These plans recommend a particular type of workout according to his/her weight a
   4. Open database/admin.sql file 
   5. Import it to the wamp/xampp folder (Note: Username for phpmyadmin is ‘root’; password is ‘’)
   6. Opening file for the project is index.php
-  7. Exercise portal and recommendations portal can be accesses from the same page.
+  7. Exercise portal and recommendations portal can be accessed from the same page.
   8. To login as admin, use initial credentials (Note: Username is admin, password is admin)
   9. Logout will directly redirect the user as well as admin to home page
   10. dbconfig.php contains the data for the connection of the localhost to the database of phpmyadmin. Login credentials for phpmyadmin can be restructured there as well.
+  11. Paypal can be used only when our project is hosted. So to temporarily host a page, <b>ngrok</b>(https://ngrok.com/docs) can be used. 
+  12. For detailed explanation, look at the execution video from the below link
+  	https://drive.google.com/file/d/1rQDG85BbekKP3wrJftYu-1u9o000kDNZ/view?usp=sharing
