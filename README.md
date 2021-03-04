@@ -9,27 +9,12 @@ https://drive.google.com/file/d/1rQDG85BbekKP3wrJftYu-1u9o000kDNZ/view?usp=shari
 Report & ppts: https://github.com/likhitaavl2k/Stay-fit--A-web-application-which-tracks-your-fitness/tree/main/Report%20%26%20PPT
 
 <b>Few Screenshots:</b>
-<style>
-* {
-  box-sizing: border-box;
-}
-.column {
-  float: left;
-  width: 50%;
-  padding: 5px;
-}
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-</style>
 
-<div class="row">
-  <div class="column">
+<div class="row" style="content: "";clear: both;display: table;">
+  <div class="column" style="float: left;width: 50%;padding: 5px;">
     <img src="Screenshots/Picture1.jpg" style="width:100%">
   </div>
-  <div class="column">
+  <div class="column" style="float: left;width: 50%;padding: 5px;">
     <img src="Screenshots/Picture2.jpg" style="width:100%">
   </div>
 </div>
