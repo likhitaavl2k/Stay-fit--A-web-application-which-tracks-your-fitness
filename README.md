@@ -10,12 +10,12 @@ Report & ppts: https://github.com/likhitaavl2k/Stay-fit--A-web-application-which
 
 <b>Few Screenshots:</b>
 
-<div class="row" style="content: "";clear: both;display: table;">
+<div class="row" style="display: table;">
   <div class="column" style="float: left;width: 50%;padding: 5px;">
-    <img src="Screenshots/Picture1.jpg" style="width:100%">
+    <img src="Screenshots/Picture1.jpg" style="width:50%">
   </div>
   <div class="column" style="float: left;width: 50%;padding: 5px;">
-    <img src="Screenshots/Picture2.jpg" style="width:100%">
+    <img src="Screenshots/Picture2.jpg" style="width:50%">
   </div>
 </div>
 
