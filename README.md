@@ -30,12 +30,20 @@ These plans recommend a particular type of workout according to his/her weight a
   17. A chatbot for conducting an online chat conversation via text.
   18. Admin portal for providing recommendations on daily basis.
 
+<b>3 modules:</b>
+  1. Exercise portal
+  2. Recommendation's portal
+  3. Admin portal
+  
 <b>Software Requirements:</b></br>
 -> Frontend :- HTML,CSS,JS<br>
 -> Backend :- PHP<br>
 -> Styling :- Bootstrap<br>
 -> Database :- MySql<br>
+
+<b>Hardware Requirements:</b>
 -> Operating System :- Windows/Mac/Linux<br>
+-> Browser which supports javascript and Indexed DB (Browser Database)
 
 <b>Step-wise instructions:</b>
   1. Download the zip file of this repository
