@@ -1,5 +1,9 @@
 # Stay-fit--A-web-application-which-tracks-your-fitness
-<h1><b>&copy Likhita AVL</b></h1>
+<pre>
+<h1><b>&copy Likhita AVL
+Github: likhitaavl2k
+Email: avllikhita@gmail.com</b></h1>
+</pre>
 
 For other libraries, images and fonts:
 https://drive.google.com/drive/folders/1dNrjiFNIlLqKI3O34zdZ6ePomBqtD21b?usp=sharing
