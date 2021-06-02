@@ -7,7 +7,7 @@ $conn = new mysqli('localhost', 'root', '', 'admindb');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Admin Dashboard</title>
 
-  <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap.min.css" rel="stylesheet">
   <style>
     .small-box {
       border-radius: 2px;
